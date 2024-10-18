@@ -146,6 +146,7 @@ const app = new Hono()
       return c.json({ data: workspace });
     }
   )
+  
   .delete("/:workspaceId", sessionMiddleware, async (c) => {
     const databases = c.get("databases");
     const user = c.get("user");
