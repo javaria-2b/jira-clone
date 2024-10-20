@@ -22,5 +22,5 @@ if (!userId || !secret) {
     secure: true,
   });
 
-  return NextResponse.redirect(`${process.env.NEXT_PUBLIC_APP}/`);
+  return NextResponse.redirect(`${request.nextUrl.origin}/`);
 }
