@@ -6,7 +6,6 @@ import { SettingsIcon, UsersIcon } from "lucide-react"
 import Link from "next/link"
 import { GoHome, GoHomeFill, GoCheckCircle, GoCheckCircleFill } from "react-icons/go"
 import { useWorkspaceId } from "@/features/workspaces/hooks/use-workspace-id"
-import { use } from "react"
 
 const routes = [
     {

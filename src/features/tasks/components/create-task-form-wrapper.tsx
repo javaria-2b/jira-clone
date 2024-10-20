@@ -31,7 +31,7 @@ export const CreateTaskFormWrapper = ({
     name: project.name,
   }));
 
-  const isLoading = isLoadingProjects || isLoadingProjects;
+  const isLoading = isLoadingProjects || isLoadingMembers;
 
   if (isLoading) {
     return (

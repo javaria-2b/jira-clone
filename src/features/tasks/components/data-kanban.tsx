@@ -129,7 +129,7 @@ export const DataKanban = ({ data, onChange }: DataKanbanProps) => {
           }
         });
 
-        if (sourceStatus !== destColumn) {
+        if (sourceStatus !== destStatus) {
           newTasks[sourceStatus].forEach((task, index) => {
             if (task) {
               const newPosition = Math.min((index + 1) * 1000, 1_000_000);
