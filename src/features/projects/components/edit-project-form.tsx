@@ -38,6 +38,7 @@ export const EditProjectForm = ({
 }: EditProjectFormProps) => {
   const router = useRouter();
   const { mutate, isPending } = useUpdateProject();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { mutate: deleteProject, isPending: isDeletingProject } = useDeleteProject();
 
   const [DeleteDialog, confirmDelete] = useConfirm(
@@ -80,12 +81,8 @@ export const EditProjectForm = ({
         {
           form: finalValues,
           param: { projectId: initialValues.$id },
-        },
-        {
-          onSuccess: () => {
-            form.reset();
-          },
         }
+        
       );
     };
 
