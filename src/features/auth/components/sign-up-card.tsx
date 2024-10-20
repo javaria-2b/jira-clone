@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
@@ -26,11 +26,10 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { registerSchema } from "../schemas";
 import { useRegister } from "../api/use-register";
+import { signUpWithGithub, signUpWithGoogle } from "@/lib/oauth";
 
 export const SignUpCard = () => {
-
-
-const {mutate, isPending} = useRegister();
+  const { mutate, isPending } = useRegister();
 
   const form = useForm<z.infer<typeof registerSchema>>({
     resolver: zodResolver(registerSchema),
@@ -42,7 +41,7 @@ const {mutate, isPending} = useRegister();
   });
 
   const onSubmit = (values: z.infer<typeof registerSchema>) => {
-    mutate({json: values})
+    mutate({ json: values });
   };
 
   return (
@@ -130,6 +129,7 @@ const {mutate, isPending} = useRegister();
 
       <CardContent className="p-7 flex flex-col gap-y-4">
         <Button
+          onClick={() => signUpWithGoogle()}
           disabled={isPending}
           variant={"secondary"}
           size={"lg"}
@@ -140,6 +140,7 @@ const {mutate, isPending} = useRegister();
         </Button>
 
         <Button
+          onClick={() => signUpWithGithub()}
           disabled={isPending}
           variant={"secondary"}
           size={"lg"}
@@ -150,14 +151,15 @@ const {mutate, isPending} = useRegister();
         </Button>
       </CardContent>
       <div className="px-7">
-        <DottedSeparator/>
+        <DottedSeparator />
       </div>
       <CardContent className="p-7 flex items-center justify-center">
-<p>
-  Already have an account?
-  <Link href='/sign-in'>
-  <span className="text-blue-700">{" "}Log In</span></Link>
-</p>
+        <p>
+          Already have an account?
+          <Link href="/sign-in">
+            <span className="text-blue-700"> Log In</span>
+          </Link>
+        </p>
       </CardContent>
     </Card>
   );
